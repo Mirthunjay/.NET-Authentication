@@ -1,0 +1,43 @@
+@BasicAuthentication_HostAddress = http://localhost:5100
+
+# Get all users (requires Basic Auth)
+GET {{BasicAuthentication_HostAddress}}/api/users
+Authorization: Basic base64encodedusername:password
+Accept: application/json
+
+###
+# Get user by ID (requires Basic Auth)
+GET {{BasicAuthentication_HostAddress}}/api/users/1
+Authorization: Basic base64encodedusername:password
+Accept: application/json
+
+###
+# Create a new user (requires Basic Auth)
+POST {{BasicAuthentication_HostAddress}}/api/users
+Authorization: Basic base64encodedusername:password
+Content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "newpassword"
+}
+
+###
+# Update a user (requires Basic Auth)
+PUT {{BasicAuthentication_HostAddress}}/api/users/1
+Authorization: Basic base64encodedusername:password
+Content-Type: application/json
+
+{
+  "id": 1,
+  "username": "updateduser",
+  "password": "updatedpassword"
+}
+
+###
+# Delete a user (requires Basic Auth)
+DELETE {{BasicAuthentication_HostAddress}}/api/users/1
+Authorization: Basic base64encodedusername:password
+Accept: application/json
+
+###
